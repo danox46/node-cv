@@ -1,4 +1,3 @@
-const Education = require("./schema.js");
 const logic = require("./logic.js");
 
 const addEducation = async (req, res) => {
@@ -12,7 +11,16 @@ const addEducation = async (req, res) => {
   }
 };
 const updateEducation = async (req, res) => {};
-const listEducation = async (req, res) => {};
+const listEducation = async (req, res) => {
+  try {
+    res
+      .status(200)
+      .send({ message: "success", educationList: await logic.listEducation() });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({ message: "error" });
+  }
+};
 const deleteEducation = async (req, res) => {};
 const filterEducation = async (req, res) => {};
 

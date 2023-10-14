@@ -51,11 +51,22 @@ const readDocuments = async (collectionName, query = {}, options = {}) => {
   const db = await connectToDatabase();
   const collection = db.collection(collectionName);
 
-  const cursor = retryLogic(
-    collection.find(query).skip(skip).limit(pageSize).sort(sort)
-  );
-  const documents = await cursor.toArray();
-  return documents;
+  let retries = 0;
+  while (true) {
+    try {
+      const cursor = collection
+        .find(query)
+        .skip(skip)
+        .limit(pageSize)
+        .sort(sort);
+      const documents = await cursor.toArray();
+      return documents;
+    } catch (error) {
+      retries++;
+      if (retries === maxRetries) throw error;
+      await new Promise((resolve) => setTimeout(resolve, delay));
+    }
+  }
 };
 
 const updateDocument = async (collectionName, query, update) => {
