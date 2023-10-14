@@ -1,9 +1,11 @@
 const { MongoClient } = require("mongodb");
 require("dotenv").config();
-const { retryLogic } = require("../network");
 
 const mongoURI = process.env.DB_URL;
 const dbName = process.env.DB_NAME;
+
+const maxRetries = 5;
+const delay = 500;
 
 let client = null;
 
@@ -13,15 +15,33 @@ const connectToDatabase = async () => {
   }
 
   client = new MongoClient(mongoURI, { useUnifiedTopology: true });
-  await retryLogic(client.connect());
-
-  return client.db(dbName);
+  let retries = 0;
+  while (true) {
+    try {
+      await client.connect();
+      return client.db(dbName);
+    } catch (error) {
+      retries++;
+      if (retries === maxRetries) throw error;
+      await new Promise((resolve) => setTimeout(resolve, delay));
+    }
+  }
 };
 
 const createDocument = async (collectionName, document) => {
   const db = await connectToDatabase();
   const collection = db.collection(collectionName);
-  await retryLogic(collection.insertOne(document));
+
+  let retries = 0;
+  while (true) {
+    try {
+      return await collection.insertOne(document);
+    } catch (error) {
+      retries++;
+      if (retries === maxRetries) throw error;
+      await new Promise((resolve) => setTimeout(resolve, delay));
+    }
+  }
 };
 
 const readDocuments = async (collectionName, query = {}, options = {}) => {
