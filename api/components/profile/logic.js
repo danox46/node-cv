@@ -1,2 +1,7 @@
-const getProfileInfo = async (req, res) => {};
-const updateProfileInfo = async (req, res) => {};
+const getProfile = async (req, res) => {};
+const updateProfile = async (req, res) => {};
+
+module.exports = {
+  getProfile,
+  updateProfile,
+};
