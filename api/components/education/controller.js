@@ -10,7 +10,9 @@ const addEducation = async (req, res) => {
     res.status(500).send({ message: "error" });
   }
 };
+
 const updateEducation = async (req, res) => {};
+
 const listEducation = async (req, res) => {
   try {
     res
@@ -21,7 +23,18 @@ const listEducation = async (req, res) => {
     res.status(500).send({ message: "error" });
   }
 };
-const deleteEducation = async (req, res) => {};
+
+const deleteEducation = async (req, res) => {
+  try {
+    const query = { degree: req.body.degree };
+    await logic.deleteEducation(query);
+    res.status(201).send({ message: "deleted" });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({ message: "error" });
+  }
+};
+
 const filterEducation = async (req, res) => {};
 
 module.exports = {

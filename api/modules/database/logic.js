@@ -54,7 +54,7 @@ const readDocuments = async (collectionName, query = {}, options = {}) => {
   let retries = 0;
   while (true) {
     try {
-      const cursor = collection
+      const cursor = await collection
         .find(query)
         .skip(skip)
         .limit(pageSize)
@@ -72,13 +72,36 @@ const readDocuments = async (collectionName, query = {}, options = {}) => {
 const updateDocument = async (collectionName, query, update) => {
   const db = await connectToDatabase();
   const collection = db.collection(collectionName);
-  await retryLogic(collection.updateOne(query, { $set: update }));
+  await retryLogic();
+
+  let retries = 0;
+  while (true) {
+    try {
+      await collection.updateOne(query, { $set: update });
+      return;
+    } catch (error) {
+      retries++;
+      if (retries === maxRetries) throw error;
+      await new Promise((resolve) => setTimeout(resolve, delay));
+    }
+  }
 };
 
 const deleteDocument = async (collectionName, query) => {
   const db = await connectToDatabase();
   const collection = db.collection(collectionName);
-  await retryLogic(collection.deleteOne(query));
+
+  let retries = 0;
+  while (true) {
+    try {
+      await collection.deleteOne(query);
+      return;
+    } catch (error) {
+      retries++;
+      if (retries === maxRetries) throw error;
+      await new Promise((resolve) => setTimeout(resolve, delay));
+    }
+  }
 };
 
 module.exports = {
