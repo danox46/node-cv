@@ -1,0 +1,26 @@
+:root {
+  --primary-font: Arial, sans-serif;
+  --secondary-font: 'Times New Roman', serif;
+  --primary-color: #56C8EA;
+  --secondary-color: #ffffff;
+  --text-color: #4C4D4F;
+  --background-color: #3B3A3B;
+}
+
+h1 {
+font-size: 34px;
+color: var(--primary-color);
+}
+
+h2 {
+  font-size: 14px;
+
+  }
+title-white{
+  color: var(--secondary-color);
+}
+
+p {
+  font-size: 14px;
+  color: #3e3e3e;
+}
