@@ -15,6 +15,10 @@ html {
   font-family: var(--primary-font);
 }
 
+.strong {
+  font-weight: 600;
+  letter-spacing: 1px;
+}
 p {
   font-family: var(--primary-font);
   margin-bottom: 5px;
@@ -67,10 +71,12 @@ h3 {
 }
 
 h4 {
-  font-family: var(--primary-font);
+  font-family: var(--secondary-color);
   font-size: 18px;
   text-transform: capitalize;
-  line-height: 1.5;
+  line-height: 1.1;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 
 .column-contact h1,
