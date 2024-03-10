@@ -25,17 +25,25 @@ p {
   font-size: 16px;
 }
 
-.column-contact p {
+.column-contact p,
+.column-contact a {
   color: var(--secondary-color);
 }
 
-.column-experience p {
+.column-experience p,
+.column-experience a {
   color: var(--text-color);
 }
 
 a {
-  color: var(--tertiary-color);
+  transition: all .5s;
   text-decoration: none;
+}
+
+a:hover {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: all .5s;
 }
 
 /* Headings */

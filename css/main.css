@@ -82,7 +82,8 @@ body,
 }
 
 .column-contact-info__addres svg,
-.column-contact-info__email svg {
+.column-contact-info__email svg,
+.column-contact-info__linkedin svg {
     fill: var(--primary-color);
     width: 30px;
     height: 30px;
@@ -91,7 +92,8 @@ body,
 
 .column-contact-info__addres svg path,
 .column-contact-info__phone svg path,
-.column-contact-info__email svg path {
+.column-contact-info__email svg path,
+.column-contact-info__linkedin {
     fill: var(--primary-color);
 }
 
@@ -99,8 +101,4 @@ body,
     width: 40px;
     height: 40px;
     transform: translateY(-5px) translateX(-5px);
-}
-
-.column-contact-info__email svg path {
-    
 }
