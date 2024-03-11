@@ -1,0 +1,31 @@
+@import url('typography.css');
+
+.progress-bar-container {
+  padding: 10px;
+}
+
+.progress-indicator {
+  display: flex;
+    margin-bottom: 20px;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.indicator-name {
+  margin-bottom: 5px;
+}
+
+.progress-bar {
+  width: 200px;
+  height: 20px;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+}
+
+.progress {
+  height: 100%;
+  border-radius: 4px;
+  background-color: var(--primary-color); /* Progress bar color */
+}
