@@ -65,7 +65,7 @@ const App = () => {
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
           </section>
         </div>
-        
+
         <div className="column column-experience">
           <div className="column-experience-name">
             <h1>Carl Smith.</h1>
@@ -85,6 +85,15 @@ const App = () => {
                 <Education />
               </div>
             </div>
+
+            <div className="section-education-2">
+              <h2>EDUCATION</h2>
+              <hr class="divider" />
+              <div className="section-education__items">
+                <Education />
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
