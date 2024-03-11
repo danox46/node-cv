@@ -65,6 +65,7 @@ const App = () => {
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
           </section>
         </div>
+        
         <div className="column column-experience">
           <div className="column-experience-name">
             <h1>Carl Smith.</h1>
