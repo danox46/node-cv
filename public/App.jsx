@@ -1,10 +1,11 @@
 import React from "react";
+import axios from "axios";
 import PropsTypes from "prop-types";
-import imgAvatar from "./assets/avatar.png";
-import imgLocation from "./assets/location-icon.png";
-import imgPhone from "./assets/phone-icon.png";
-import imgEmail from "./assets/email-icon.png";
-import imgLinkedin from "./assets/linkedin-icon.png";
+import imgAvatar from "/assets/avatar.png";
+import imgLocation from "/assets/location-icon.png";
+import imgPhone from "/assets/phone-icon.png";
+import imgEmail from "/assets/email-icon.png";
+import imgLinkedin from "/assets/linkedin-icon.png";
 import ProgressBar from "./ProgressBar";
 import WorkExperience from "./WorkExperience";
 import Education from "./Education";
@@ -79,14 +80,6 @@ const App = () => {
             </div>
 
             <div className="section-education">
-              <h2>EDUCATION</h2>
-              <hr class="divider" />
-              <div className="section-education__items">
-                <Education />
-              </div>
-            </div>
-
-            <div className="section-education-2">
               <h2>EDUCATION</h2>
               <hr class="divider" />
               <div className="section-education__items">
