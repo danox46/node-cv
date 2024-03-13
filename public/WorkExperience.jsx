@@ -1,5 +1,5 @@
 import React from "react";
-import './css/work-experience.css';
+import './css/modules.css';
 
 const ExperienceData = [
   {
@@ -39,12 +39,12 @@ const Experience = () => {
   return (
     <div className="experience-container">
       {ExperienceData.map((item) => (
-        <div className="experience-item" key={item.id}>
-          <div className="experience-item__date">
+        <div className="experience-item flex-section" key={item.id}>
+          <div className="experience-item__date width-30">
             <h3>{item.year}</h3>
             <h4>Position: {item.position}</h4>
           </div>
-          <div className="experience-item__info">
+          <div className="experience-item__info width-70">
             <h3>{item.company}</h3>
             <p>Description: {item.description}</p>
           </div>

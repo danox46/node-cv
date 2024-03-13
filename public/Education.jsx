@@ -1,5 +1,5 @@
 import React from "react";
-import './css/education.css';
+import './css/modules.css';
 
 const EducationData = [
   {
@@ -39,12 +39,12 @@ const Education = () => {
   return (
     <div className="education-container">
       {EducationData.map((item) => (
-        <div className="education-item" key={item.id}>
-          <div className="education-item__date">
+        <div className="education-item flex-section" key={item.id}>
+          <div className="education-item__date width-30">
             <h3>{item.year}</h3>
             <h4>Degree: {item.degree}</h4>
           </div>
-          <div className="education-item__info">
+          <div className="education-item__info width-70">
             <h3>{item.institution}</h3>
             <p>Description: {item.description}</p>
           </div>

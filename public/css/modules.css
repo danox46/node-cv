@@ -1,0 +1,31 @@
+.flex-section {
+  display: flex;
+justify-content: space-between;
+align-items: flex-start;
+flex-direction: row;
+gap: 10px;
+width: 100%;
+margin-bottom: 20px;
+}
+
+.flex-section-references {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.flex-section-column {
+  display: flex;
+  flex: 1 1 calc(50% - 10px);
+  margin-bottom: 20px;
+  flex-direction: column;
+}
+
+.width-30 {
+width: 30%;
+}
+
+.width-70 {
+width: 70%;
+}
