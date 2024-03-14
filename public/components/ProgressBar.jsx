@@ -1,17 +1,20 @@
 import React, { useState } from 'react';
-import './css/progress-bar.css'; // Progress bar styles
+import '../css/progress-bar.css'; // Estilos de la barra de progreso
 
 const ProgressBar = () => {
-  // Status to store the progress of each indicator
+  // Estado para almacenar el progreso de cada indicador
   const [progress, setProgress] = useState({
     'SEO & Marketing': 8,
     'Web Design': 7,
     'Graphic Design': 3,
   });
 
+  // Ordenar los indicadores alfabéticamente
+  const sortedProgress = Object.entries(progress).sort(([a], [b]) => a.localeCompare(b));
+
   return (
     <div className="progress-bar-container">
-      {Object.entries(progress).map(([indicator, value]) => (
+      {sortedProgress.map(([indicator, value]) => (
         <div key={indicator} className="progress-indicator">
           <div className="indicator-name">{indicator}</div>
           <div className="progress-bar">

@@ -1,5 +1,4 @@
-import React from "react";
-import './css/modules.css';  // Styles for recommendations
+import '../css/modules.css';  // Styles for recommendations
 
 // Data for recommendations
 const RecommendationsData = [

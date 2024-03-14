@@ -1,12 +1,15 @@
 import React from "react";
+import PropertyTypes from "prop-types";
 import axios from "axios";
-import PropsTypes from "prop-types";
+import PropTypes from "prop-types";
 import imgAvatar from "/assets/avatar.png";
-import ProgressBar from "./ProgressBar";
-import WorkExperience from "./WorkExperience";
-import Education from "./Education";
-import Contact from "./Contact";
-import References from "./References";
+import ProgressBar from "./components/ProgressBar";
+import Languages from "./components/Languages";
+import WorkExperience from "./components/WorkExperience";
+import Education from "./components/Education";
+import Contact from "./components/Contact";
+import References from "./components/References";
+import Divider from "./components/TitleDivider";
 import "./index.css"; // General styles
 
 const App = () => {
@@ -17,20 +20,19 @@ const App = () => {
           <div className="column-sections">
             <img src={imgAvatar} alt="avatar-image" />
           </div>
-          <h2>Contact me</h2>
-          <hr class="divider" />
-          <Contact />
-
+          <div className="section-contact">
+            <Divider title="Contact" />
+            <Contact />
+          </div>
           <div className="section-expertise">
-            <h2>expertise</h2>
-            <hr class="divider" />
+            <Divider title="Expertise" />
             <ProgressBar />
           </div>
 
-          <section>
-            <h2>Sección 3</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </section>
+          <div className="section-languages">
+            <Divider title="Languages" />
+           <Languages />
+          </div>
         </div>
 
         <div className="column column-experience">
@@ -39,28 +41,16 @@ const App = () => {
             <h2>Graphic Designer</h2>
           </div>
           <div className="section-experience">
-            <h2>WORK EXPERIENCE</h2>
-            <hr class="divider" />
-            <div className="section-experience__items">
-              <WorkExperience />
-            </div>
-
-            <div className="section-education">
-              <h2>EDUCATION</h2>
-              <hr class="divider" />
-              <div className="section-education__items">
-                <Education />
-              </div>
-            </div>
-
-            <div className="section-references">
-              <h2>REFERENCES</h2>
-              <hr class="divider" />
-              <div className="section-references__items">
-                <References />
-              </div>
-            </div>
-
+            <Divider title="WORK EXPERIENCE" />
+            <WorkExperience />
+          </div>
+          <div className="section-education">
+            <Divider title="EDUCATION" />
+            <Education />
+          </div>
+          <div className="section-references">
+            <Divider title="REFERENCE" />
+            <References />
           </div>
         </div>
       </div>

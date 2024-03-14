@@ -1,5 +1,4 @@
-import React from "react";
-import './css/modules.css';
+import "../css/modules.css";
 
 const ExperienceData = [
   {
@@ -37,19 +36,21 @@ const ExperienceData = [
 
 const Experience = () => {
   return (
-    <div className="experience-container">
-      {ExperienceData.map((item) => (
-        <div className="experience-item flex-section" key={item.id}>
-          <div className="experience-item__date width-30">
-            <h3>{item.year}</h3>
-            <h4>Position: {item.position}</h4>
+    <div className="section-experience__items">
+      <div className="experience-container">
+        {ExperienceData.map((item) => (
+          <div className="experience-item flex-section" key={item.id}>
+            <div className="experience-item__date width-30">
+              <h3>{item.year}</h3>
+              <h4>Position: {item.position}</h4>
+            </div>
+            <div className="experience-item__info width-70">
+              <h3>{item.company}</h3>
+              <p>Description: {item.description}</p>
+            </div>
           </div>
-          <div className="experience-item__info width-70">
-            <h3>{item.company}</h3>
-            <p>Description: {item.description}</p>
-          </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };

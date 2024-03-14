@@ -1,4 +1,4 @@
-@import url('typography.css');
+@import url("typography.css");
 
 .progress-bar-container {
   padding: 10px;
@@ -6,11 +6,15 @@
 
 .progress-indicator {
   display: flex;
-    margin-bottom: 20px;
-    align-items: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.progress-indicator:not(:last-child) {
+  margin-bottom: 20px;
 }
 
 .indicator-name {
