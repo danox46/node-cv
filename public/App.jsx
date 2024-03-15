@@ -16,10 +16,16 @@ const App = () => {
   return (
     <div className="container">
       <div className="box">
+        <div className="column-image">
+        <img className="user-image" src={imgAvatar} alt="avatar-image" />
+        </div>
+      <div className="column-name">
+      <h1>Carl Smith.</h1>
+            <h2>Graphic Designer</h2>
+            </div>
+      </div>
+      <div className="box">
         <div className="column column-contact">
-          <div className="column-sections">
-            <img src={imgAvatar} alt="avatar-image" />
-          </div>
           <div className="section-contact">
             <Divider title="Contact" />
             <Contact />
@@ -36,10 +42,6 @@ const App = () => {
         </div>
 
         <div className="column column-experience">
-          <div className="column-experience-name">
-            <h1>Carl Smith.</h1>
-            <h2>Graphic Designer</h2>
-          </div>
           <div className="section-experience">
             <Divider title="WORK EXPERIENCE" />
             <WorkExperience />
