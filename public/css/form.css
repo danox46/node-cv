@@ -1,0 +1,53 @@
+/* typography.css */
+@import url("typography.css");
+
+label {
+  font-weight: 500;
+  font-size: 18px;
+}
+
+input {
+  padding: 10px;
+  border-radius: 5px;
+  border: px solid var(--tertiary-color);
+  width: 100%;
+}
+
+.form-container {
+  text-align: center;
+  width: 100%;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 50px 0;
+}
+
+.section-contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  max-width: 60%;
+  margin: 0 auto;
+  gap: 30px;
+}
+
+@media(max-width: 992px) {
+  .section-contact {
+    max-width: 100%;
+padding: 20px;
+  }
+}
+@media(max-width: 768px) {}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: start;
+  gap: 10px;
+}
+
+.form-container__inputs input {
+  width: 100%;
+}

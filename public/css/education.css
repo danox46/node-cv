@@ -1,0 +1,17 @@
+.education-item {
+display: flex;
+justify-content: space-between;
+align-items: flex-start;
+flex-direction: row;
+gap: 10px;
+width: 100%;
+margin-bottom: 20px;
+}
+
+.education-item__date {
+width: 30%;
+}
+
+.education-item__info {
+width: 70%;
+}

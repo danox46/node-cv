@@ -1,6 +1,5 @@
-import React from "react";
+
 import PropertyTypes from "prop-types";
-import axios from "axios";
 import PropTypes from "prop-types";
 import imgAvatar from "/assets/avatar.png";
 import ProgressBar from "./components/ProgressBar";
@@ -8,8 +7,10 @@ import Languages from "./components/Languages";
 import WorkExperience from "./components/WorkExperience";
 import Education from "./components/Education";
 import Contact from "./components/Contact";
+import Profile from "./components/Profile";
 import References from "./components/References";
 import Divider from "./components/TitleDivider";
+import Form from "./components/Form";
 import "./index.css"; // General styles
 
 const App = () => {
@@ -28,7 +29,9 @@ const App = () => {
         <div className="column column-contact">
           <div className="section-contact">
             <Divider title="Contact" />
+            
             <Contact />
+            <Profile />
           </div>
           <div className="section-expertise">
             <Divider title="Expertise" />
@@ -56,6 +59,9 @@ const App = () => {
           </div>
         </div>
       </div>
+
+    <Form />
+      
     </div>
   );
 };

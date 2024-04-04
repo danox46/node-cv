@@ -84,6 +84,10 @@ padding-top: 40px;
     .column-name {
         max-width: 100%;
     }
+
+    .container {
+        padding: 0px;
+    }
 }
 
 .column-contact .divider {

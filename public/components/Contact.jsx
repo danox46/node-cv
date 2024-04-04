@@ -56,6 +56,8 @@ const ContactInfo = () => {
     ));
   };
 
+  
+
   // Render contact information
   return <div className="contact-info-container">{renderContactInfo()}</div>;
 };
