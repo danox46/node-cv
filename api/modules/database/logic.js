@@ -1,4 +1,4 @@
-const { MongoClient } = require("mongodb");
+const { MongoClient, ObjectId } = require("mongodb");
 require("dotenv").config();
 
 const mongoURI = process.env.DB_URL;
@@ -72,12 +72,17 @@ const readDocuments = async (collectionName, query = {}, options = {}) => {
 const updateDocument = async (collectionName, query, update) => {
   const db = await connectToDatabase();
   const collection = db.collection(collectionName);
-  await retryLogic();
-
   let retries = 0;
   while (true) {
     try {
-      await collection.updateOne(query, { $set: update });
+      if (query._id) {
+        query._id = new ObjectId(query._id);
+        delete update._id;
+      }
+      const updated = await collection.updateOne(query, { $set: update });
+      if (updated.matchedCount === 0) {
+        throw { message: "Document not found", status: 404 };
+      }
       return;
     } catch (error) {
       retries++;
@@ -94,7 +99,13 @@ const deleteDocument = async (collectionName, query) => {
   let retries = 0;
   while (true) {
     try {
-      await collection.deleteOne(query);
+      if (query._id) {
+        query._id = new ObjectId(query._id);
+      }
+      const deleted = await collection.deleteOne(query);
+      if (deleted.deletedCount === 0) {
+        throw { message: "Document not found", status: 404 };
+      }
       return;
     } catch (error) {
       retries++;

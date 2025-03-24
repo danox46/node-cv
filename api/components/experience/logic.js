@@ -1,5 +1,13 @@
 const db = require("../../modules/database");
 
+const addExperience = async (experience) => {
+  await db.createDocument("experience", experience);
+};
+
+const updateExperience = async (experience) => {
+  await db.updateDocument("experience", { _id: experience._id }, experience);
+};
+
 const listExperience = async (page, pageSize, sortKey, sortValue) => {
   const experienceList = await db.readDocuments(
     "experience",
@@ -8,14 +16,14 @@ const listExperience = async (page, pageSize, sortKey, sortValue) => {
   );
   return experienceList;
 };
-const filterExperience = async (req, res) => {};
 
-const addExperience = async (experience) => {
-  await db.createDocument("experience", experience);
+const deleteExperience = async (query) => {
+  await db.deleteDocument("experience", query);
 };
 
-const deleteExperience = async (req, res) => {};
-const updateExperience = async (req, res) => {};
+const filterExperience = async (req, res) => {
+  // Implement filtering logic here if needed
+};
 
 module.exports = {
   addExperience,
