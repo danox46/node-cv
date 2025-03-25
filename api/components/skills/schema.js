@@ -3,6 +3,7 @@ module.exports = class Skill {
     this.title = "";
     this.expertise = "";
     this.relatedEducation = [];
+    this.relatedExperience = [];
     this.searchLabels = [];
   }
 };
