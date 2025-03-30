@@ -9,12 +9,13 @@ function loadProfile() {
       ) {
         const profile = data.profile[0];
 
+        // Update profile details
         document.querySelectorAll(".full-name").forEach((element) => {
           element.textContent = profile.name + " " + profile.lastname;
         });
 
         document.querySelectorAll(".title").forEach((element) => {
-          element.textContent = profile.title || "";
+          element.textContent = profile.currentTitle || "";
         });
 
         document.querySelectorAll(".email").forEach((element) => {
@@ -32,6 +33,24 @@ function loadProfile() {
         document.querySelectorAll(".summary").forEach((element) => {
           element.textContent = profile.summary || "";
         });
+
+        // Update social links in the footer
+        const footerSocialLinks = document.querySelector(
+          ".footer-social-links"
+        );
+        if (footerSocialLinks) {
+          footerSocialLinks.innerHTML = ""; // Clear existing links
+
+          profile.socialLinks.forEach((link) => {
+            const anchor = document.createElement("a");
+            anchor.href = link.url;
+            anchor.textContent = link.name;
+            anchor.target = "_blank"; // Open in a new tab
+            anchor.rel = "noopener noreferrer"; // Security best practice
+            anchor.classList.add("social-link"); // Add a class for styling
+            footerSocialLinks.appendChild(anchor);
+          });
+        }
       } else {
         console.error("Invalid profile data:", data);
       }
