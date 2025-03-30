@@ -20,8 +20,8 @@ const experienceSchema = z.object({
 const addExperience = async (req, res) => {
   try {
     const experience = experienceSchema.parse(req.body);
-    await logic.addExperience(experience);
-    res.status(201).send({ message: "created" });
+    const created = await logic.addExperience(experience);
+    res.status(201).send({ message: "created", _id: created.insertedId });
   } catch (error) {
     console.error(error);
     if (error instanceof z.ZodError) {

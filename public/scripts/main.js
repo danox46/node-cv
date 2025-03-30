@@ -97,7 +97,11 @@ function loadExperiences() {
               cardContent += `<p><strong>Description:</strong> ${experience.description}</p>`;
             }
 
-            if (experience.highlights && experience.highlights.length > 0) {
+            if (
+              experience.highlights &&
+              experience.highlights.length > 0 &&
+              experience.highlights.some((e) => e !== "")
+            ) {
               cardContent += `
                 <ul>
                   <strong>Highlights:</strong>
@@ -173,11 +177,11 @@ function loadEducation() {
 }
 
 function loadProjects() {
-  fetch("/api/v0/projects")
+  fetch("/api/v0/project")
     .then((response) => response.json())
     .then((data) => {
       if (data.message === "success" && Array.isArray(data.projectList)) {
-        const containers = document.querySelectorAll(".projects-container");
+        const containers = document.querySelectorAll(".project-container");
         containers.forEach((container) => {
           container.innerHTML = ""; // Clear any existing content
 

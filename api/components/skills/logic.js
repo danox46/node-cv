@@ -1,7 +1,7 @@
 const db = require("../../modules/database");
 
 const addSkill = async (skill) => {
-  await db.createDocument("skills", skill);
+  return await db.createDocument("skills", skill);
 };
 
 const updateSkill = async (skill) => {

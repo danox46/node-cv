@@ -87,8 +87,7 @@ section {
 
 .experience-container,
 .education-container,
-.projects-container,
-.skills-container {
+.project-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;

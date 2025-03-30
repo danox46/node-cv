@@ -1,7 +1,7 @@
 const db = require("../../modules/database");
 
 const addExperience = async (experience) => {
-  await db.createDocument("experience", experience);
+  return await db.createDocument("experience", experience);
 };
 
 const updateExperience = async (experience) => {

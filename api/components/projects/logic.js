@@ -1,7 +1,7 @@
 const db = require("../../modules/database");
 
 const addProject = async (project) => {
-  await db.createDocument("projects", project);
+  return await db.createDocument("projects", project);
 };
 
 const updateProject = async (project) => {

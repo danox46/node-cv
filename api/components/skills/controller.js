@@ -13,8 +13,8 @@ const skillSchema = z.object({
 const addSkill = async (req, res) => {
   try {
     const skill = skillSchema.parse(req.body);
-    await logic.addSkill(skill);
-    res.status(201).send({ message: "created" });
+    const created = await logic.addSkill(skill);
+    res.status(201).send({ message: "created", _id: created.insertedId });
   } catch (error) {
     console.error(error);
     if (error instanceof z.ZodError) {

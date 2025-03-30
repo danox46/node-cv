@@ -19,8 +19,8 @@ const projectSchema = z.object({
 const addProject = async (req, res) => {
   try {
     const project = projectSchema.parse(req.body);
-    await logic.addProject(project);
-    res.status(201).send({ message: "created" });
+    const created = await logic.addProject(project);
+    res.status(201).send({ message: "created", _id: created.insertedId });
   } catch (error) {
     console.error(error);
     if (error instanceof z.ZodError) {

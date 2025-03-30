@@ -1,7 +1,7 @@
 const db = require("../../modules/database");
 
 const addEducation = async (education) => {
-  await db.createDocument("education", education);
+  return await db.createDocument("education", education);
 };
 
 const updateEducation = async (education) => {

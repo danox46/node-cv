@@ -18,8 +18,8 @@ const educationSchema = z.object({
 const addEducation = async (req, res) => {
   try {
     const education = educationSchema.parse(req.body);
-    await logic.addEducation(education);
-    res.status(201).send({ message: "created" });
+    const created = await logic.addEducation(education);
+    res.status(201).send({ message: "created", _id: created.insertedId });
   } catch (error) {
     console.error(error);
     if (error instanceof z.ZodError) {
