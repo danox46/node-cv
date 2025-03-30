@@ -5,14 +5,5 @@ services:
     runtime: node
     buildCommand: npm install
     startCommand: npm start
-    envVars:
-      - key: NODE_ENV
-        value: production
-      - key: PORT
-        value: 3000
-      - key: DB_URL
-        value: mongodb+srv://danox:DNX.20513676@cluster0.wdfaiiv.mongodb.net/
-      - key: DB_NAME
-        value: node-cv
     plan: free
     autoDeploy: true
